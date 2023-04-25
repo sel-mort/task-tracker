@@ -8,11 +8,16 @@ import { TASKS } from 'src/app/mock-tasks';
   providedIn: 'root'
 })
 export class TaskService {
+  private apiUrl = 'http://localhost:5000/tasks';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getTasks(): Observable<Task[]> {
-    const tasks = of(TASKS);
-    return tasks;
+    // const tasks = of(TASKS);
+    return this.http.get<Task[]>(this.apiUrl);
+  }
+
+  deleteTask(id: number | undefined): Observable<Task> {
+    return this.http.delete<Task>(`${this.apiUrl}/${id}`);
   }
 }
