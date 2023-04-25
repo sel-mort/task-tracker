@@ -20,4 +20,8 @@ export class TaskService {
   deleteTask(id: number | undefined): Observable<Task> {
     return this.http.delete<Task>(`${this.apiUrl}/${id}`);
   }
+
+  toggleReminder(task: Task): Observable<Task> {
+    return this.http.put<Task>(`${this.apiUrl}/${task.id}`, task);
+  }
 }
