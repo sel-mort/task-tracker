@@ -63,7 +63,7 @@ body {
 .form-control-check {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .form-control-check label {
@@ -73,4 +73,9 @@ body {
 .form-control-check input {
   flex: 2;
   height: 20px;
+}
+
+.form-control-check #reminder {
+  place-self: start;
+  width: fit-content;
 }

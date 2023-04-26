@@ -2,7 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Task } from '../Task';
-import { TASKS } from 'src/app/mock-tasks';
+// import { TASKS } from 'src/app/mock-tasks';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+}
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +28,10 @@ export class TaskService {
   }
 
   toggleReminder(task: Task): Observable<Task> {
-    return this.http.put<Task>(`${this.apiUrl}/${task.id}`, task);
+    return this.http.put<Task>(`${this.apiUrl}/${task.id}`, task, httpOptions);
+  }
+
+  addTask(task: Task): Observable<Task> {
+    return this.http.post<Task>(`${this.apiUrl}`, task, httpOptions)
   }
 }
