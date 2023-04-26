@@ -17,6 +17,12 @@
       "text": "Food Shopping",
       "day": "May 7th at 12:30pm",
       "reminder": false
+    },
+    {
+      "text": "finishing this project",
+      "day": "april 26th at right now",
+      "reminder": true,
+      "id": 4
     }
   ]
 }
